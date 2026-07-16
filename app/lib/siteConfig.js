@@ -1,7 +1,7 @@
 // 사이트 절대 주소. 배포 후 실제 도메인이 정해지면
 // Vercel 환경변수 NEXT_PUBLIC_SITE_URL 만 바꾸면 전체(sitemap/robots/OG)에 반영됩니다.
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://youthmoa.vercel.app"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://youthmoa.co.kr"
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "청년모아";
