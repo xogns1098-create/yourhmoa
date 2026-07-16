@@ -1448,6 +1448,56 @@ main {
   margin: 0;
 }
 
+/* ---------- 공유 버튼 ---------- */
+.share-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 20px 0 24px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.share-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-soft);
+  margin-right: 4px;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 9px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.12s ease;
+}
+
+.share-btn:hover {
+  border-color: var(--brand);
+}
+
+.share-kakao {
+  background: #fee500;
+  border-color: #fee500;
+  color: #191600;
+}
+
+.share-kakao:hover {
+  border-color: #f2d900;
+  opacity: 0.92;
+}
+
 /* ---------- Explorer: search & filters ---------- */
 .explorer {
   margin-top: 4px;

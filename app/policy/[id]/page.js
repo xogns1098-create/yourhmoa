@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getPolicyById } from "../../data/samplePolicies";
 import { getDday, formatDate } from "../../lib/policyUtils";
 import { fetchPolicyByNo } from "../../lib/youthApi";
+import { SITE_URL } from "../../lib/siteConfig";
+import ShareButtons from "../../components/ShareButtons";
 
 // 정책 하나를 가져옵니다. API 우선, 실패/없으면 샘플 데이터로 대체.
 async function getPolicy(id) {
@@ -172,6 +174,12 @@ export default async function PolicyDetailPage({ params }) {
       >
         공식 공고 원문에서 신청하기 →
       </a>
+
+      <ShareButtons
+        title={`${policy.title} | 청년모아`}
+        description={policy.summary || ""}
+        imageUrl={`${SITE_URL}/opengraph-image`}
+      />
 
       <p className="detail-disclaimer">
         ※ 본 정보는 참고용입니다. 실제 신청 자격·기간·내용은 변경될 수 있으니 신청 전
