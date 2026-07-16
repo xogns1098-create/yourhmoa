@@ -1746,3 +1746,117 @@ main {
   color: var(--muted);
   margin: 0;
 }
+
+/* ---------- 주제·지역별 허브 (홈) ---------- */
+.landing-hub {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 8px 24px 8px;
+}
+
+.hub-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.hub-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.hub-chip:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+  transform: translateY(-1px);
+}
+
+.hub-chip-emoji {
+  font-size: 17px;
+}
+
+.hub-chip-sm {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 15px;
+}
+
+.hub-region-title {
+  margin-top: 28px;
+}
+
+/* ---------- 주제·지역별 랜딩 페이지 ---------- */
+.landing-view .back-link {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.landing-view-intro {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-soft);
+  max-width: 760px;
+  margin: 10px 0 0;
+}
+
+.landing-group {
+  margin-top: 30px;
+}
+
+.landing-empty-note {
+  font-size: 15px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 0;
+}
+
+.landing-cta-band {
+  margin-top: 38px;
+  padding: 26px 24px;
+  background: var(--brand-soft);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.landing-cta-band p {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.landing-cta-band .finder-submit {
+  display: inline-block;
+  width: auto;
+  padding: 12px 26px;
+}
+
+.landing-related {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.landing-related h2 {
+  font-size: 17px;
+  font-weight: 800;
+  margin: 0 0 14px;
+}
+
+.landing-related .chip {
+  text-decoration: none;
+}

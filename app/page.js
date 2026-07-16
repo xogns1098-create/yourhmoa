@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { fetchPolicyCount } from "./lib/youthApi";
+import { TOPICS, REGIONS } from "./lib/landingConfig";
 
 const FEATURES = [
   {
@@ -99,6 +100,30 @@ export default async function Home() {
               <li>마감 임박 정책을 먼저 알려줌</li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* 주제·지역별 허브 (검색 유입 랜딩으로 연결) */}
+      <section className="landing-hub" aria-label="주제·지역별 청년정책">
+        <h2 className="section-title">주제별로 찾아보기</h2>
+        <div className="hub-chips">
+          {TOPICS.map((t) => (
+            <Link key={t.slug} href={`/topic/${t.slug}`} className="hub-chip">
+              <span className="hub-chip-emoji" aria-hidden>
+                {t.emoji}
+              </span>
+              {t.label}
+            </Link>
+          ))}
+        </div>
+
+        <h2 className="section-title hub-region-title">지역별로 찾아보기</h2>
+        <div className="hub-chips">
+          {REGIONS.map((r) => (
+            <Link key={r.slug} href={`/region/${r.slug}`} className="hub-chip hub-chip-sm">
+              {r.name}
+            </Link>
+          ))}
         </div>
       </section>
 
