@@ -23,6 +23,7 @@ export const metadata = {
   ],
   alternates: { canonical: "/" },
   verification: {
+    google: "gibR1c0pzUIlBDbfCrTSAAnsmb3k_Hd4e1AY-tW3srk",
     other: {
       "naver-site-verification": "54eb14592b86bed359f20cad7bbdf3033b364a21",
     },
