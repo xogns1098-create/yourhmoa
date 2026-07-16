@@ -1,0 +1,53 @@
+import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "./lib/siteConfig";
+
+const TITLE = "청년모아 | 내게 맞는 청년정책을 한눈에";
+
+export const metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: TITLE,
+    template: "%s | 청년모아",
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "청년정책",
+    "청년 지원금",
+    "청년 지원사업",
+    "청년월세",
+    "청년내일채움공제",
+    "온통청년",
+    "청년 정책 모아보기",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: SITE_DESCRIPTION,
+  },
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="ko">
+      <body>
+        <a href="#main-content" className="skip-link">
+          본문 바로가기
+        </a>
+        <Header />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}
