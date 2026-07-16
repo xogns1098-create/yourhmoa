@@ -22,6 +22,11 @@ export const metadata = {
     "청년 정책 모아보기",
   ],
   alternates: { canonical: "/" },
+  verification: {
+    other: {
+      "naver-site-verification": "54eb14592b86bed359f20cad7bbdf3033b364a21",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
