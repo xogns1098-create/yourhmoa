@@ -2,7 +2,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "./lib/siteConfig";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, GA_ID } from "./lib/siteConfig";
 
 const TITLE = "청년모아 | 내게 맞는 청년정책을 한눈에";
 
@@ -54,6 +54,20 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+            </Script>
+          </>
+        )}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8407480096414341"
