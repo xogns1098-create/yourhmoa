@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-const KAKAO_JS_KEY = process.env.NEXT_PUBLIC_KAKAO_JS_KEY;
+// 카카오 JavaScript 키 (브라우저 공개 키 · 카카오 개발자 콘솔의 도메인 제한으로 보호됨)
+const KAKAO_JS_KEY =
+  process.env.NEXT_PUBLIC_KAKAO_JS_KEY || "5b6601a760a2d41cff52d195d3546089";
 const KAKAO_SDK_SRC = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js";
 
 export default function ShareButtons({ title, description, imageUrl }) {
