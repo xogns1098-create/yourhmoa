@@ -63,6 +63,19 @@ export default function MatchFinder({ policies }) {
       .sort((a, b) => deadlineRank(a.policy.deadline) - deadlineRank(b.policy.deadline));
   }, [submitted, policies, age, region, categories]);
 
+  // 결과를 "내 대시보드" 요약으로: 개수 / 이번 주 마감 / 상시 신청.
+  // (혜택 금액은 데이터가 일정치 않아 합산하지 않고, 신뢰 가능한 건수만 씁니다.)
+  const summary = useMemo(() => {
+    let urgent = 0;
+    let ongoing = 0;
+    for (const r of results) {
+      const d = getDday(r.policy.deadline);
+      if (d.ongoing) ongoing += 1;
+      else if (d.urgent) urgent += 1;
+    }
+    return { total: results.length, urgent, ongoing };
+  }, [results]);
+
   function toggleCategory(c) {
     setCategories((prev) =>
       prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c]
@@ -158,15 +171,31 @@ export default function MatchFinder({ policies }) {
               🧠 지난번 입력한 조건으로 다시 보여드리고 있어요.
             </p>
           )}
-          <div className="finder-results-head">
-            <p>
-              {age && <strong>만 {age}세</strong>}
-              {region !== "전체" && <> · {region}</>} 회원님께 해당되는 정책{" "}
-              <strong className="count">{results.length}건</strong>
-            </p>
-            <button className="reset-btn" onClick={reset}>
-              조건 다시 선택
-            </button>
+
+          <div className="match-dashboard">
+            <div className="match-dashboard-head">
+              <p className="match-dashboard-title">
+                {age && <strong>만 {age}세</strong>}
+                {region !== "전체" && <> · {region}</>} 회원님이 받을 수 있는 지원
+              </p>
+              <button className="reset-btn" onClick={reset}>
+                조건 다시 선택
+              </button>
+            </div>
+            <div className="match-metrics">
+              <div className="match-metric">
+                <span className="metric-num">{summary.total}개</span>
+                <span className="metric-label">받을 수 있는 지원</span>
+              </div>
+              <div className="match-metric metric-urgent">
+                <span className="metric-num">{summary.urgent}건</span>
+                <span className="metric-label">이번 주 마감</span>
+              </div>
+              <div className="match-metric metric-ongoing">
+                <span className="metric-num">{summary.ongoing}건</span>
+                <span className="metric-label">상시 신청 가능</span>
+              </div>
+            </div>
           </div>
 
           {results.length === 0 ? (

@@ -760,6 +760,86 @@ main {
   border-top: 1px solid var(--border);
 }
 
+/* 맞춤 결과 요약 대시보드: "정책 카탈로그"가 아니라 "내 대시보드"로 보이게 */
+.match-dashboard {
+  background: var(--brand-soft);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+}
+
+.match-dashboard-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.match-dashboard-title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.match-dashboard-title strong {
+  color: var(--brand);
+}
+
+.match-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.match-metric {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.match-metric .metric-num {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.match-metric .metric-label {
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+.match-metric.metric-urgent {
+  background: var(--urgent-soft);
+}
+
+.match-metric.metric-urgent .metric-num {
+  color: var(--urgent);
+}
+
+.match-metric.metric-ongoing .metric-num {
+  color: var(--accent);
+}
+
+@media (max-width: 520px) {
+  .match-metrics {
+    grid-template-columns: 1fr;
+  }
+  .match-metric {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+}
+
 .finder-results-head {
   display: flex;
   align-items: center;
